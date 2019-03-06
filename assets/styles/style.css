@@ -6,17 +6,20 @@
 
 }
 
+body {
+    background-color: rgb(205, 205, 205);
+}
+
 #title {
     font-family: pixelOperator;
     font-size: 46pt;
     text-align: center;
 }
 
-.container div {
-    margin: auto;
-    width: 100%;
-    align-content: center;
-    display: inline-block;
+div.center {
+    align-items: center;
+    justify-content: center;
+    display: flex;
 }  
 
 #form_login form {
@@ -25,6 +28,9 @@
     vertical-align: middle;
 }
 
+label {
+    font-family : pixelOperator;
+}
 
 table {
     width : 60%;
