@@ -16,6 +16,14 @@ body {
     text-align: center;
 }
 
+#btn_login {
+    background : url(/images/button_64.png);
+    background-repeat : no-repeat;
+    width : 64px;
+    height : 20px;
+    border : 0;
+}
+
 div.center {
     align-items: center;
     justify-content: center;
@@ -28,8 +36,9 @@ div.center {
     vertical-align: middle;
 }
 
-label {
+label, input {
     font-family : pixelOperator;
+    font-size: 13pt;
 }
 
 table {
