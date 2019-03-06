@@ -30,6 +30,7 @@ input {
     font-size: 13pt;
     background : url(/images/input_field.png);
     background-repeat : no-repeat;
+    image-rendering: pixelated;
     width : 156px;
     height : 22px;
     border : 0;
@@ -41,11 +42,11 @@ button.btn_small {
     outline : none;
     background : url(/images/button_64.png);
     background-repeat : no-repeat;
+    image-rendering: pixelated;
     width : 64px;
     height : 22px;
     border : 0;
     font-size: 11pt;
-    image-rendering: pixelated;
 }
 
 button.btn_small:hover {
