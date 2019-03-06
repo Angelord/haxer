@@ -11,17 +11,32 @@ body {
 }
 
 #title {
-    font-family: pixelOperator;
-    font-size: 46pt;
-    text-align: center;
+    font-family : pixelOperator;
+    font-size : 46pt;
+    text-align : center;
 }
 
-#btn_login {
+button {
+    font-family : pixelOperator;
+}
+
+button.btn_small {
+    outline : none;
     background : url(/images/button_64.png);
     background-repeat : no-repeat;
     width : 64px;
     height : 20px;
     border : 0;
+    font-size: 11pt;
+    image-rendering: pixelated;
+}
+
+button.btn_small:hover {
+    background : url(/images/button_64_hover.png);
+}
+
+button.btn_small:active {
+    background : url(/images/button_64_active.png);
 }
 
 div.center {
