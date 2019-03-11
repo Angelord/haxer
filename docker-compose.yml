@@ -1,0 +1,60 @@
+version: "2.0"
+services:
+
+  backend:
+    build: ./docker/backend
+    working_dir: '/var/www'
+    volumes:
+      - "./backend:/var/www"
+    env_file:
+      - variables.env
+    links:
+      - db
+    depends_on:
+      - db
+
+  engine:
+      build: ./docker/engine
+      ports:
+        - "81:80"
+      working_dir: '/var/www'
+      volumes:
+        - "./engine:/var/www"
+      env_file:
+        - variables.env
+
+  frontend:
+    build: ./docker/frontend
+    volumes:
+      - "./frontend:/app"
+    working_dir: '/app'
+    ports:
+      - "80:80"
+    env_file:
+      - variables.env
+    depends_on:
+      - backend
+    links:
+      - backend
+
+  db:
+    image: mariadb
+    restart: always
+    command: ['--character-set-server=utf8', '--collation-server=utf8_general_ci']
+    ports:
+      - '3306'
+    env_file:
+      - variables.env
+    volumes:
+      - ./db/data:/var/lib/mysql
+      - ./docker/mysql/my.cnf:/etc/mysql/my.cnf
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    links:
+      - db
+    ports:
+      - "8080:8080"
+    env_file:
+      - variables.env
