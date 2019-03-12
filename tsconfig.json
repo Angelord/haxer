@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "module": "commonjs",
+        "outDir": "./",
+        "sourceMap": true,
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "removeComments": true,
+        "preserveConstEnums": true,
+    },
+    "env": {
+        "type": "node"
+    },
+    "exclude": [
+        "node_modules",
+        "public/js/game/phaser.d.ts"
+    ]
+}
