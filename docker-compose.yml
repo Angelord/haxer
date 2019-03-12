@@ -2,7 +2,7 @@ version: "2.0"
 services:
 
   backend:
-    build: ./docker/backend
+    image: 'bitnami/express'
     working_dir: '/var/www'
     volumes:
       - "./backend:/var/www"
@@ -14,22 +14,23 @@ services:
       - db
 
   engine:
-      build: ./docker/engine
-      ports:
-        - "81:80"
-      working_dir: '/var/www'
-      volumes:
-        - "./engine:/var/www"
-      env_file:
-        - variables.env
+    image: 'bitnami/express'
+    ports:
+      - "81:80"
+    working_dir: '/var/www'
+    volumes:
+      - "./engine:/var/www"
+    env_file:
+      - variables.env
 
   frontend:
-    build: ./docker/frontend
+    image: 'ebiven/vue-cli'
     volumes:
-      - "./frontend:/app"
-    working_dir: '/app'
+      - "./frontend:/code"
+    working_dir: '/code'
+    command: npm run dev
     ports:
-      - "80:80"
+      - "80:8000"
     env_file:
       - variables.env
     depends_on:
